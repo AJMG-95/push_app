@@ -1,3 +1,3 @@
-# push_app
+# pushApp
 
 A new Flutter project.

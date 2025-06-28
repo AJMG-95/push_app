@@ -1,4 +1,4 @@
-package com.example.push_app
+package com.ajmg.pushApp
 
 import io.flutter.embedding.android.FlutterActivity
 

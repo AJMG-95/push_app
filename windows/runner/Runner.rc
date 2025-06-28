@@ -89,13 +89,13 @@ BEGIN
     BEGIN
         BLOCK "040904e4"
         BEGIN
-            VALUE "CompanyName", "com.example" "\0"
-            VALUE "FileDescription", "push_app" "\0"
+            VALUE "CompanyName", "com.ajmg" "\0"
+            VALUE "FileDescription", "pushApp" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "push_app" "\0"
-            VALUE "LegalCopyright", "Copyright (C) 2025 com.example. All rights reserved." "\0"
-            VALUE "OriginalFilename", "push_app.exe" "\0"
-            VALUE "ProductName", "push_app" "\0"
+            VALUE "InternalName", "pushApp" "\0"
+            VALUE "LegalCopyright", "Copyright (C) 2025 com.ajmg. All rights reserved." "\0"
+            VALUE "OriginalFilename", "pushApp.exe" "\0"
+            VALUE "ProductName", "pushApp" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

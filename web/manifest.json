@@ -1,6 +1,6 @@
 {
-    "name": "push_app",
-    "short_name": "push_app",
+    "name": "pushApp",
+    "short_name": "pushApp",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
