@@ -1,13 +1,11 @@
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:pushApp/config/router/router.dart';
 import 'package:pushApp/config/theme/app_theme.dart';
 import 'package:pushApp/presentation/blocs/notifications/notifications_bloc.dart';
 
 Future<void> main() async {
-  await dotenv.load();
   WidgetsFlutterBinding.ensureInitialized();
   FirebaseMessaging.onBackgroundMessage(firebaseMessagingBackgroundHandler);
   await NotificationsBloc.initializeFCM();
