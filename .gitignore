@@ -1,4 +1,5 @@
 # Miscellaneous
+lib/firebase_options.dart
 *.class
 *.log
 *.pyc
@@ -8,6 +9,7 @@
 .build/
 .buildlog/
 .history
+.env
 .svn/
 .swiftpm/
 migrate_working_dir/
