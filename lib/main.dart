@@ -1,14 +1,16 @@
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pushApp/config/router/router.dart';
-import 'package:pushApp/config/theme/app_theme.dart';
-import 'package:pushApp/presentation/blocs/notifications/notifications_bloc.dart';
+import 'package:pushapp/config/local_notifications/local_notifications.dart';
+import 'package:pushapp/config/router/router.dart';
+import 'package:pushapp/config/theme/app_theme.dart';
+import 'package:pushapp/presentation/blocs/notifications/notifications_bloc.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   FirebaseMessaging.onBackgroundMessage(firebaseMessagingBackgroundHandler);
   await NotificationsBloc.initializeFCM();
+  await LocalNotifications.initializeLocalNotifications();
 
   runApp(
     MultiBlocProvider(

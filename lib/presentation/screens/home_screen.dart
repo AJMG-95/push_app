@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:pushApp/presentation/blocs/notifications/notifications_bloc.dart';
+import 'package:pushapp/presentation/blocs/notifications/notifications_bloc.dart';
 
 class HomeScreen extends StatelessWidget {
   static const String name = 'HomeScreen';
@@ -18,7 +18,7 @@ class HomeScreen extends StatelessWidget {
         actions: [
           IconButton(
             onPressed: () {
-              context.read<NotificationsBloc>().requestPermision();
+              context.read<NotificationsBloc>().requestPermission();
             },
             icon: Icon(Icons.settings),
           ),
