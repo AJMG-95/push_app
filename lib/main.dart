@@ -15,12 +15,12 @@ Future<void> main() async {
   runApp(
     MultiBlocProvider(
       providers: [
-        BlocProvider(
-          create: (_) => NotificationsBloc(),
-        ), // El parametro _ es el buildContes pero en es te caso no es necesario
+        BlocProvider(create: (_) => NotificationsBloc(
+          requestLocalNotificationsPermissions: LocalNotifications.requesPermissionLocalNotifications,
+          showLocalNotifications: LocalNotifications.showLocalNotification
+        ))
       ],
-      child: const MainApp(),
-    ),
+      child: const MainApp())
   );
 }
 

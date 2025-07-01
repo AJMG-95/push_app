@@ -35,7 +35,7 @@ class LocalNotifications {
   }
 
   // Mostrar las localNotofocations
-  static void showLocalNotifications({
+  static void showLocalNotification({
     required int id,
     String? title,
     String? body,
@@ -52,7 +52,7 @@ class LocalNotifications {
 
     const notificationDetails = NotificationDetails(
       android: androidDetails,
-      //TODO iOS
+      //TODO IOS
     );
 
     final flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();

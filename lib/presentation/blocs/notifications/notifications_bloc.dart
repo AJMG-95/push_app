@@ -25,10 +25,22 @@ class NotificationsBloc extends Bloc<NotificationsEvent, NotificationsState> {
   /// Crea una instancia para acceder a Firebase Messaging
   FirebaseMessaging messaging = FirebaseMessaging.instance;
 
-  int pushNumberId = 0;
+  int pushNumberId = 0; // id autoincremental de las localNotifications
+
+  final Future<void> Function()? requestLocalNotificationsPermissions;
+  final void Function({
+    required int id,
+    String? title,
+    String? body,
+    String? data,
+  })?
+  showLocalNotifications;
 
   /// Constructor del BLoC
-  NotificationsBloc() : super(const NotificationsState()) {
+  NotificationsBloc({
+    this.showLocalNotifications,
+    this.requestLocalNotificationsPermissions,
+  }) : super(const NotificationsState()) {
     // Vincula eventos con sus funciones manejadoras
     on<NotificationStatusChanged>(_notificationStatusChanged);
     on<NotificationReceived>(_onPushMessageReceived);
@@ -111,12 +123,14 @@ class NotificationsBloc extends Bloc<NotificationsEvent, NotificationsState> {
               : message.notification!.apple?.imageUrl,
     );
 
-    LocalNotifications.showLocalNotifications(
-      id: ++pushNumberId,
-      body: notification.body,
-      data: notification.data.toString(),
-      title: notification.title,
-    );
+    if (showLocalNotifications != null) {
+      showLocalNotifications!(
+        id: ++pushNumberId,
+        body: notification.body,
+        data: notification.data.toString(),
+        title: notification.title,
+      );
+    }
 
     add(
       NotificationReceived(notification),
@@ -140,8 +154,11 @@ class NotificationsBloc extends Bloc<NotificationsEvent, NotificationsState> {
       sound: true,
     );
 
-    // Soliciatar pemisos a las localNotifications
-    await LocalNotifications.requesPermissionLocalNotifications();
+    if (requestLocalNotificationsPermissions != null) {
+      await requestLocalNotificationsPermissions!();
+      // Soliciatar pemisos a las localNotifications
+      //await LocalNotifications.requesPermissionLocalNotifications();
+    }
 
     add(
       NotificationStatusChanged(settings.authorizationStatus),
