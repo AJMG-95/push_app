@@ -1,4 +1,5 @@
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:pushapp/config/router/router.dart';
 
 class LocalNotifications {
   // Pedir permisos
@@ -29,8 +30,7 @@ class LocalNotifications {
 
     await flutterLocalNotificationsPlugin.initialize(
       initializationSettings,
-      // TODO
-      //onDidReceiveNotificationResponse: onDidReceiveNotificationResponse,
+      onDidReceiveNotificationResponse: onDidReceiveNotificationResponse
     );
   }
 
@@ -64,5 +64,9 @@ class LocalNotifications {
       notificationDetails,
       payload: data,
     );
+  }
+
+  static void onDidReceiveNotificationResponse(NotificationResponse response) {
+    appRouter.push('/push-details/${response.payload}');
   }
 }

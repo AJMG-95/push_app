@@ -127,7 +127,7 @@ class NotificationsBloc extends Bloc<NotificationsEvent, NotificationsState> {
       showLocalNotifications!(
         id: ++pushNumberId,
         body: notification.body,
-        data: notification.data.toString(),
+        data: notification.messageId,
         title: notification.title,
       );
     }
