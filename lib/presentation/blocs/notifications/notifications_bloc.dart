@@ -6,7 +6,6 @@ import 'package:flutter_bloc/flutter_bloc.dart'; // BLoC: patrón para manejar e
 import 'package:equatable/equatable.dart'; // para comparar objetos fácilmente
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart'; // Notificaciones push
-import 'package:pushapp/config/local_notifications/local_notifications.dart';
 import 'package:pushapp/domain/entities/push_message.dart'; // Nuestra entidad
 import 'package:pushapp/firebase_options.dart'; // Configuración de Firebase
 
@@ -16,8 +15,6 @@ part 'notifications_state.dart'; // importa estados
 /// Función que se ejecuta cuando llega una notificación mientras la app está en segundo plano
 Future<void> firebaseMessagingBackgroundHandler(RemoteMessage message) async {
   await Firebase.initializeApp(); // necesitas esto para usar Firebase
-
-  print("Handling a background message: ${message.messageId}");
 }
 
 /// BLoC que maneja las notificaciones
